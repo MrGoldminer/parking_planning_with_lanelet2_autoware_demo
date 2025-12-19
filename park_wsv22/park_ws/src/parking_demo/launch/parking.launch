@@ -1,0 +1,5 @@
+<launch>
+  <param name="vehicle_wheelbase" value="2.7" />
+  <param name="vehicle_max_steering" value="0.6" />
+  <node pkg="parking_demo" type="real_map_parking_node" name="real_map_parking_node" output="screen"/>
+</launch>

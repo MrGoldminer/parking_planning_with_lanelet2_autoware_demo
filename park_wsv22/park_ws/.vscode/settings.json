@@ -1,0 +1,6 @@
+{
+  "cmake.sourceDirectory": "/home/goldminer/park_ws/src/parking_demo",
+  "files.associations": {
+    "sstream": "cpp"
+  }
+}

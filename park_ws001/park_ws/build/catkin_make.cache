@@ -1,0 +1,2 @@
+parking_demo
+-DCATKIN_DEVEL_PREFIX=/home/goldminer/paking_demo/park_ws001/park_ws/devel -DCMAKE_INSTALL_PREFIX=/home/goldminer/paking_demo/park_ws001/park_ws/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/goldminer/park_ws/install
+
+Name: parking_demo
+Description: Description of parking_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
