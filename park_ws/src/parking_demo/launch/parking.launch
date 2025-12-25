@@ -1,0 +1,20 @@
+<launch>
+  <!-- 车辆参数 -->
+  <param name="vehicle_wheelbase" value="1.8" />
+  <param name="vehicle_max_steering" value="0.6" />
+  <param name="vehicle_length" value="2.4" />
+  <param name="vehicle_width" value="1.4" />
+
+  <!-- 控制器参数 - 优化为严格跟踪中心线 -->
+  <param name="lookahead_distance" value="2.5" />  <!-- 减小前瞻距离，更精确跟踪 -->
+  <param name="kp_speed" value="1.0" />            <!-- 降低速度增益，更平稳 -->
+  <param name="max_speed" value="2.5" />           <!-- 降低最大速度，更安全 -->
+  <param name="min_speed" value="0.5" />           <!-- 提高最小速度，避免停滞 -->
+  <param name="goal_tolerance" value="0.2" />      <!-- 减小容差，更精确 -->
+
+  <!-- 规划器参数 -->
+  <param name="parking_back_distance" value="1.5" />
+
+  <!-- 🔧 修正：启动改进的重构版本（不使用OMPL Reeds-Shepp） -->
+  <node pkg="parking_demo" type="parking_system_refactored" name="parking_system_refactored" output="screen"/>
+</launch>

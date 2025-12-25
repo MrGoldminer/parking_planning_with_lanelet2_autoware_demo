@@ -1,0 +1,8 @@
+prefix=/home/goldminer/park_ws/install
+
+Name: parking_demo
+Description: Description of parking_demo
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lparking_demo_lib
+Requires: roscpp visualization_msgs geometry_msgs nav_msgs std_msgs tf roslib
