@@ -1,0 +1,51 @@
+<launch>
+  <!-- ============================================ -->
+  <!-- 水平泊车（侧方位停车）仿真配置 -->
+  <!-- ============================================ -->
+
+  <!-- 车辆动力学参数 -->
+  <param name="vehicle_wheelbase" value="1.8" />        <!-- 轴距 (m) -->
+  <param name="vehicle_max_steering" value="0.6" />     <!-- 最大转向角 (rad) -->
+  <param name="vehicle_length" value="2.4" />           <!-- 车长 (m) -->
+  <param name="vehicle_width" value="1.4" />            <!-- 车宽 (m) -->
+  <param name="vehicle_rear_overhang" value="0.5" />    <!-- 后悬 (m) -->
+  <param name="vehicle_front_overhang" value="0.5" />   <!-- 前悬 (m) -->
+
+  <!-- 控制器参数 - 水平泊车优化 -->
+  <param name="lookahead_distance" value="3.0" />       <!-- 前瞻距离 -->
+  <param name="kp_speed" value="1.2" />                 <!-- 速度增益 -->
+  <param name="max_speed" value="3.5" />                <!-- 最大速度（提高行驶速度） -->
+  <param name="min_speed" value="0.6" />                <!-- 最小速度 -->
+  <param name="goal_tolerance" value="0.15" />          <!-- 目标容差 -->
+
+  <!-- 规划器参数 -->
+  <param name="parking_back_distance" value="1.5" />    <!-- 倒车预留距离 -->
+
+  <!-- 垂直泊车特定参数 -->
+  <param name="start_lanelet_id" value="44" />          <!-- 起始车道 ID（从44出发） -->
+  <param name="parking_lanelet_id" value="121" />       <!-- 泊车计算起点车道 ID -->
+  <param name="parking_boundary_way_1" value="10295" /> <!-- 停车位边界1 ID -->
+  <param name="parking_boundary_way_2" value="10298" /> <!-- 停车位边界2 ID -->
+
+  <!-- 地图文件路径 -->
+  <param name="map_file" value="$(find parking_demo)/maps/parking_map.osm" />
+
+  <!-- 垂直泊车轨迹参数（多段式）-->
+  <param name="perpendicular_parking_phases" value="6" />   <!-- 泊车阶段数 -->
+  <param name="parking_forward_distance" value="1.0" />     <!-- 前进预备距离 (m) -->
+  <param name="parking_reverse_speed" value="0.5" />        <!-- 倒车速度 (m/s) -->
+  <param name="parking_straight_distance" value="0.8" />    <!-- 直线段距离 (m) -->
+  <param name="parking_final_speed" value="0.3" />          <!-- 最终入库速度 (m/s) -->
+
+  <!-- RViz可视化 -->
+  <param name="enable_visualization" value="true" />
+
+  <!-- 启动水平泊车节点 -->
+  <node pkg="parking_demo" type="horizontal_parking_node" name="horizontal_parking_node" output="screen">
+    <param name="use_sim_time" value="false" />
+  </node>
+
+  <!-- 可选：启动RViz -->
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find parking_demo)/parking_demo.rviz" /> -->
+
+</launch>
