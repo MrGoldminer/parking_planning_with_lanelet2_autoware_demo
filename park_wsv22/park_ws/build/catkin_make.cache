@@ -1,2 +1,0 @@
-parking_demo
--DCATKIN_DEVEL_PREFIX=/home/goldminer/park_ws/devel -DCMAKE_INSTALL_PREFIX=/home/goldminer/park_ws/install -G Unix Makefiles
